@@ -1,0 +1,85 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    width: 1000px;
+    height: 1300px;
+    background: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+#topo{
+    background: #f2f2f2;
+    width: 1000px;
+    height: 100px;
+
+}
+
+#menu-navegacao ul {
+
+}
+
+#menu-navegacao li {
+    display: inline;
+    padding: 10px;
+    background: #194164;
+    border-top: 1px solid #8ab0cb;
+    border-left: 1px solid #194164;
+    background: #0b263d url(../images/nav_main_bg.png) top left repeat-x;
+}
+
+#menu-navegacao a {
+    padding: 18px;
+    text-decoration: none;
+    font-size: 1em;
+    line-height: 1.9em;
+    color: white;
+    text-align: center;
+    font-family: Arial,Gadget,sans-serif;
+
+}
+
+#menu-navegacao {
+    margin-top: 4px;
+
+}
+
+#covid19 {
+    width: 475px;
+    height: 235px;
+    border: 1px solid red;
+    float: left;
+    margin:10px;
+}
+
+#covid19 h3 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: "Segoe UI", "Arial", Sans-Serif;
+}
+
+#hiring {
+    width: 475px;
+    height: 235px;
+    border: 1px solid red;
+    float:right;
+    margin:10px;
+    background: url(../images/section_1.jpg);
+    background-size: 120%;
+}
+
+#hiring_text {
+    background-color: rgba(255,255,255,0.90);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: 5px 20px;
+    margin: 15px;
+    font-size: 1rem;
+}
+
+#hiring_text .desc {
+    line-height: 1.3rem;
+    font-size: 0.8rem;
+}
