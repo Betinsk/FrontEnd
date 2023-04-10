@@ -13,6 +13,19 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.listen(8080, () => {
-    console.log('O servidor está rodando!')
+app.get('/register', (req, res) => {
+    res.render('register')
 })
+
+app.get('/imates', (req, res) => {
+    res.render('imates')
+})
+
+app.get('/locations', (req, res) => {
+    res.render('locations')
+})
+
+
+app.listen(3000, () => {
+    console.log('O servidor está rodando!')
+})  
