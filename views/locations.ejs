@@ -12,9 +12,13 @@
         font-size: 0.8em;
         justify-content: left;
     }
+    .containerColor {
+      background: white;
+    }
 </style>
 
-<div class="container" > <!-- Inicio container-->
+
+<div class="container containerColor shadow p-3 mb-5 bg-white rounded">
 
     <div class="container text-center">
        
@@ -30,7 +34,7 @@
                 <p class="fw-light">We have many facilities located throughout the nation: 122 institutions, 6 regional offices, a headquarters, 2 staff training centers, and 22 residential reentry management offices.</p>
             </div>
         </div> 
-    </div>
+   
 
     <hr>
 
@@ -75,5 +79,7 @@
 
     </div>
 
-
+</div>
 </div> <!--Fim container-->
+
+<%- include ('partials/footer.ejs') %>

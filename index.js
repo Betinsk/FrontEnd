@@ -25,6 +25,15 @@ app.get('/locations', (req, res) => {
     res.render('locations')
 })
 
+app.get('/woman', (req, res) => {
+    res.render('woman')
+})
+
+
+app.get('/work', (req, res) => {
+    res.render('work')
+})
+
 
 app.listen(3000, () => {
     console.log('O servidor está rodando!')
