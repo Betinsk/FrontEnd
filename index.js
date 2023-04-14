@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+app.get('/sign', (req, res) => {
+    res.render('sign')
+})
+
 app.get('/register', (req, res) => {
     res.render('register')
 })
