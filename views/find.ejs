@@ -1,0 +1,34 @@
+<%- include ('partials/header.ejs') %>
+
+
+<div class="container shadow p-3 mb-5 bg-white rounded text-center">
+
+        <h1 class="display-5"> List of imates</h1>
+
+         
+            <% imates.forEach(function(imates){ %>
+                <hr>
+                <table  class="table table-striped">
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">security Number</th>
+                      <th scope="col">adress</th>
+                      <th scope="col">comited Crime</th>
+                      <th scope="col">data Of Release</th>
+                    </tr>
+                    <tr>
+                      <td><%= imates.name %></td>
+                      <td><%= imates.securityNumber %></td>
+                      <td> <%= imates.adress %></td>
+                      <td><%= imates.comitedCrime %></td>
+                      <td> <%= imates.dataOfRelease %></td>
+                    </tr>
+                </table>
+            <% }); %>
+        
+ 
+        </div>
+
+
+
+<%- include ('partials/footer.ejs') %>

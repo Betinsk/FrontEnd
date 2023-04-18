@@ -3,6 +3,7 @@ const app = express()
 
 const bodyParser = require('body-parser')
 const connection = require('./database/database')
+const imate = require('./database/imate')
 //database
 
 connection.authenticate()
@@ -44,16 +45,41 @@ app.get('/woman', (req, res) => {
     res.render('woman')
 })
 
+app.get('/test', (req, res) => {
+    res.render('test')
+})
 
 app.get('/work', (req, res) => {
     res.render('work')
 })
 
+app.get('/find', (req, res) => {
+    imate.findAll({raw: true}).then(imates => {
+        console.log(imates)
+        res.render('find', {
+            imates: imates
+        })
+    })
+})
+
 app.post('/register', (req, res) => {
-    var email = req.body.email
-    res.send('register success ' + email)
+    var name = req.body.name
+    var adress = req.body.adress
+    var securityNumber = req.body.securityNumber
+    var comitedCrime = req.body.crime
+    var release = req.body.release
+    imate.create({
+        name: name,
+        adress: adress,
+        securityNumber: securityNumber,
+        comitedCrime: comitedCrime,
+        dataOfRelease: release
+    }).then(()=>{
+        res.redirect('/')
+    })
 })
 
 app.listen(3000, () => {
     console.log('O servidor está rodando!')
 })  
+
