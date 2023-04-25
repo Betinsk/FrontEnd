@@ -53,6 +53,10 @@ app.get('/work', (req, res) => {
     res.render('work')
 })
 
+app.get('/aboutus', (req, res) => {
+    res.render('aboutUs')
+})
+
 app.get('/find', (req, res) => {
     imate.findAll({raw: true}).then(imates => {
         console.log(imates)
