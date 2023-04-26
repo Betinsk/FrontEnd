@@ -58,12 +58,35 @@ app.get('/aboutus', (req, res) => {
 })
 
 app.get('/find', (req, res) => {
-    imate.findAll({raw: true}).then(imates => {
+    imate.findAll({raw: true, order: [
+        ['id','DESC']
+    ]}).then(imates => {
         console.log(imates)
         res.render('find', {
             imates: imates
         })
     })
+})
+
+
+app.get('/findOne', (req, res) => {
+    var fin = req.body.fin
+    console.log(fin)
+
+    imate.findOne({
+        where: {
+            id: fin
+          }
+    }).then(imates => {
+        console.log(imates)
+
+        if(imates != undefined) {
+            res.render('findOne')
+        } else {
+            res.redirect('index')
+        }
+    })
+
 })
 
 app.post('/register', (req, res) => {
