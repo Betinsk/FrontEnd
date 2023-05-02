@@ -69,21 +69,22 @@ app.get('/find', (req, res) => {
 })
 
 
-app.get('/findOne', (req, res) => {
-    var fin = req.body.fin
-    console.log(fin)
+app.post('/busca', (req, res) => {
+    var busca = req.body.fin
+    console.log('metodo executado')
+    console.log('busca é ' + busca)
 
-    imate.findOne({
-        where: {
-            id: fin
-          }
-    }).then(imates => {
-        console.log(imates)
+    imate.findOne({raw: true,
+        where: {securityNumber: busca}
+    }).then(ima => {
+        console.log(ima)
 
-        if(imates != undefined) {
-            res.render('findOne')
+        if(ima != undefined) {
+            res.render('findOne', {
+                ima: ima
+            })
         } else {
-            res.redirect('index')
+            res.render('findError')
         }
     })
 
@@ -95,6 +96,7 @@ app.post('/register', (req, res) => {
     var securityNumber = req.body.securityNumber
     var comitedCrime = req.body.crime
     var release = req.body.release
+    console.log(name)
     imate.create({
         name: name,
         adress: adress,
