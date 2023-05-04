@@ -42,6 +42,7 @@ const person = connection.define('person', {
     }
 });
 
+
 person.sync({force:false}).then(() => {})
 
 
