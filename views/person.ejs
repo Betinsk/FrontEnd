@@ -1,0 +1,42 @@
+<%- include ('partials/header.ejs') %>
+
+    <div class="container">
+
+
+    <h1 class="display-4">Former of register</h1>
+    <table class="table">
+       
+        <tr>
+            <th scope="col">Email</th>
+            <td> <%= person.email %></td>
+        </tr>
+
+        <tr>
+          <th scope="col">Name</th>
+          <td><%= person.name %></td>
+        </tr>
+
+        <tr>
+          <th scope="col">security Number</th>
+          <td><%= person.securityNumber %></td>
+        </tr>
+
+        <tr>
+            <th scope="col">City</th>
+            <td> <%= person.city %></td>
+        </tr>
+
+        <tr>
+          <th scope="col">Adress</th>
+          <td> <%= person.adress %></td>
+        </tr>
+
+        <tr>
+            <th scope="col">Estate</th>
+            <td> <%= person.estate %></td>
+        </tr>
+
+    </table>
+</div>
+
+<%- include ('partials/footer.ejs') %>

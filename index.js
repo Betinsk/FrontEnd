@@ -4,6 +4,8 @@ const app = express()
 const bodyParser = require('body-parser')
 const connection = require('./database/database')
 const imate = require('./database/imate')
+const person = require('./database/person')
+
 //database
 
 connection.authenticate()
@@ -57,6 +59,27 @@ app.get('/aboutus', (req, res) => {
     res.render('aboutUs')
 })
 
+app.get('/registerPerson', (req, res) => {
+    res.render('personRegister')
+})
+
+app.get('/person/:name', (req, res) => {
+    var name = req.params.name
+    person.findOne({
+        where: {name: name}
+    }).then(person => {
+        if(person != undefined) {
+            res.render('person',{
+                person: person
+        }) 
+        } else {
+            res.redirect('/')
+        }
+    })
+
+})
+
+
 app.get('/find', (req, res) => {
     imate.findAll({raw: true, order: [
         ['id','DESC']
@@ -67,7 +90,6 @@ app.get('/find', (req, res) => {
         })
     })
 })
-
 
 app.post('/busca', (req, res) => {
     var busca = req.body.fin
@@ -108,7 +130,34 @@ app.post('/register', (req, res) => {
     })
 })
 
+app.post('/registerPerson', (req, res) => {
+    var email = req.body.email
+    var password = req.body.password
+    var name = req.body.name
+    var securityNumber = req.body.securityNumber
+    var city = req.body.city
+    var adress = req.body.adress
+    var estate = req.body.estate
+    var fone = req.body.fone
+    console.log(name)
+    person.create({
+        email: email,
+        password: password,
+        name: name,
+        securityNumber: securityNumber,
+        city:city,
+        adress: adress,
+        estate: estate,
+        foneNumber: fone,
+    }).then(()=>{
+        res.redirect('/person/'+ name)
+    })
+})
+
+
+
 app.listen(3000, () => {
     console.log('O servidor está rodando!')
 })  
 
+2411 
