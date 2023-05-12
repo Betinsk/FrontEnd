@@ -9,4 +9,4 @@ COPY package*.json ./
 RUN npm install
 
 # Define the entry point for the container
-CMD ["node", "start"]
+CMD ["nodemon", "index.js"]
