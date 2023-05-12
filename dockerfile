@@ -1,6 +1,6 @@
 FROM node:16
 
-WORKDIR /app
+WORKDIR /app 
 
 # Copy the application files into the working directory
 COPY package*.json ./
