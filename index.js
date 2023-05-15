@@ -38,7 +38,7 @@ app.get('/sign', (req, res) => {
     res.render('sign')
 })
 
-app.get('/register', (req, res) => {
+app.get('/admin/register', (req, res) => {
     res.render('register')
 })
 
@@ -48,6 +48,10 @@ app.get('/locations', (req, res) => {
 
 app.get('/woman', (req, res) => {
     res.render('woman')
+})
+
+app.get('/contactUs', (req, res) => {
+    res.render('contactUs')
 })
 
 app.get('/test', (req, res) => {
@@ -71,6 +75,7 @@ app.get('/person/:name', (req, res) => {
     person.findOne({
         where: {name: nome}
     }).then(person => {
+        console.log(person)
         if(person != undefined) {
             res.render('person',{
                 person: person
@@ -109,6 +114,7 @@ app.post('/registerPerson', (req, res) => {
     var adress = req.body.adress
     var estate = req.body.estate
     var fone = req.body.fone
+    var imateId = req.body.id
 
     person.create({
         email: email,
@@ -119,6 +125,7 @@ app.post('/registerPerson', (req, res) => {
         adress: adress,
         estate: estate,
         foneNumber: fone,
+        imateId: imateId
     }).then(()=>{
         res.redirect('/person/'+ name)
     })

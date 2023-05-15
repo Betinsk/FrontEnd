@@ -28,6 +28,8 @@ const Imate = connection.define('imate', {
 })
 
 
+
+
 Imate.sync({force:false}).then(() => {})
 
 module.exports = Imate
