@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+/*const Sequelize = require('sequelize')
 
 const connection = new Sequelize('federalBureauPrison', 'root', '', {
     host: 'localhost',
@@ -6,3 +6,4 @@ const connection = new Sequelize('federalBureauPrison', 'root', '', {
 })
 
 module.exports = connection
+*/
