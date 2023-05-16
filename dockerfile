@@ -1,6 +1,6 @@
 FROM node:16
 
-WORKDIR package.json
+WORKDIR /frontend
 
 # Copy the application files into the working directory
 COPY package*.json ./
