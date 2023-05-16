@@ -6,10 +6,10 @@ FROM node:16
 WORKDIR /index.js
 
 # Copy the application files into the working directory
-COPY . .
+COPY index.js .
 
 # Install the application dependencies
 RUN npm install
 
 # Define the entry point for the container
-CMD ["npm", "start"]
+CMD ["npm", "index.js"]
