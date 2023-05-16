@@ -3,7 +3,7 @@
 FROM node:16
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /index.js
 
 # Copy the application files into the working directory
 COPY . .
