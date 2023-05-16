@@ -3,10 +3,10 @@
 FROM node:16
 
 # Set the working directory in the container
-WORKDIR Dockerfile
+WORKDIR /app
 
 # Copy the application files into the working directory
-COPY package-lock.json
+COPY . /app
 
 # Install the application dependencies
 RUN npm install
