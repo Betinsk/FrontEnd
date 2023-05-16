@@ -3,7 +3,7 @@
 FROM node:16
 
 # Set the working directory in the container
-WORKDIR ./app
+WORKDIR FRONTEND
 
 # Copy the application files into the working directory
 COPY package*.json ./
