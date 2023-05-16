@@ -9,7 +9,7 @@ const findCategory = require('./views/finds/findCategory')
 
 //database
 
-connection.authenticate()
+/*connection.authenticate()
 .then(() => {
     console.log('conexão feita com o banco de dados')
 }).catch((msgErro) => {
@@ -18,7 +18,7 @@ connection.authenticate()
 app.set('view engine', 'ejs')
 //app.set('finds', 'finds');
 //app.set('views', 'views');
-
+*/
 //View engine
 
 
