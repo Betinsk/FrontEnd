@@ -1,4 +1,4 @@
-<%- include ('../partials/header.ejs') %>
+<%- include ('../../admin/partials/header.ejs') %>
 
 
 <div class="container shadow p-3 mb-5 bg-white rounded text-center">
@@ -28,9 +28,13 @@
                       <td> <%= imates.dataOfRelease %></td>
                       <td>
 
-                        <button class="btn btn-secondary">Edit</button>
-                        <button class="btn btn-dark">Delet</button>
-
+                        <button style="display: inline;" class="btn btn-secondary">Edit</button>
+                       
+                        <form method="POST" action="/admin/delet" style="display: inline;" onsubmit="youSure(event, this)">
+                          <input type="hidden" name="id" value="<%= imates.id %>">
+                        <button  style="display: inline;" class="btn btn-dark">Delet</button>
+                        
+                        </form>
                     </td>
 
                     </tr>
@@ -44,3 +48,19 @@
 
 
 <%- include ('../partials/footer.ejs') %>
+
+<script>
+
+  function youSure(event, form) {
+    event.preventDefault()
+    var decision = confirm('Are you sure?')
+
+    if(decision) {
+            form.submit()
+        } else {
+            console.log('Not sure')
+        }
+
+  }
+
+</script>

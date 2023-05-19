@@ -6,6 +6,7 @@ const connection = require('./database/database')
 const imate = require('./database/imate')
 const person = require('./database/person')
 const findCategory = require('./views/finds/findCategory')
+const admin = require('./admin/adminController')
 
 //database
 /*
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use('/', findCategory)
+app.use('/', admin)
 
 
 app.get('/', (req, res) => {
@@ -102,9 +104,26 @@ app.post('/register', (req, res) => {
         comitedCrime: comitedCrime,
         dataOfRelease: release
     }).then(()=>{
-        res.redirect('/')
+        res.redirect('/admin/index')
     })
 })
+
+app.post('/admin/delet', (req, res) => {
+    var id = req.body.id
+    if(id != undefined) {
+        if(id != isNaN(id)){
+            imate.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect('/find')
+            })
+        }
+        } else {
+            res.send('Não existe')
+        }
+    }) 
 
 app.post('/registerPerson', (req, res) => {
     var email = req.body.email

@@ -8,7 +8,7 @@ router.get('/imates', (req, res) => {
     res.render('finds/imates')
 })
 
-router.get('/find', (req, res) => {
+router.get('/admin/find', (req, res) => {
     imate.findAll({raw: true, order: [
         ['id','DESC']
     ]}).then(imates => {

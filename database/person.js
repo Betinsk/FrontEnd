@@ -1,4 +1,4 @@
-/*const Sequelize = require('sequelize')
+const Sequelize = require('sequelize')
 const connection = require('./database')
 const imate = require('./imate')
  
@@ -58,4 +58,4 @@ person.belongsTo(imate)
 person.sync({force:false}).then(() => {})
 
 
-module.exports = person*/
+module.exports = person
