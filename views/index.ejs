@@ -105,12 +105,8 @@
     <div class="col">
     <h1 class="display-6">Locate a Federal Inmate</h1>
       
-      <form method="POST" action="/busca">
-      <div class="input-group mb-3 col-sm-9" >
-        <span class="input-group-text" id="inputGroup-sizing-default">Social Security Number</span>
-        <input type="text" class="form-control" name="fin">
-        <button type="submit" class="btn btn-secondary ml-2">Search</button>
-      </form>
+    <%- include ('./finds/imates') %>
+
     </div>
     </div>
   </div>

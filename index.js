@@ -117,7 +117,7 @@ app.post('/admin/delet', (req, res) => {
                     id: id
                 }
             }).then(() => {
-                res.redirect('/find')
+                res.redirect('/admin/find')
             })
         }
         } else {
