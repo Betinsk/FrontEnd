@@ -22,7 +22,7 @@ router.post('/findPerson', (req, res) => {
                person:person
             })
         } else {
-            res.render('finds/findError')
+            res.render('finds/findPersonError')
         }
     })
 
