@@ -1,4 +1,4 @@
-/*const Sequelize = require('sequelize')
+const Sequelize = require('sequelize')
 const connection = require('./database')
 
 const Imate = connection.define('imate', {
@@ -33,4 +33,3 @@ const Imate = connection.define('imate', {
 Imate.sync({force:false}).then(() => {})
 
 module.exports = Imate
-*/
