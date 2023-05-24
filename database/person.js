@@ -47,8 +47,4 @@ const person = connection.define('person', {
 
 person.sync({force:false}).then(() => {})
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 34542e83d262909df1c88e595cc6a6e01e8e35f6
 module.exports = person
