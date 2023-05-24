@@ -8,15 +8,18 @@ const person = require('./database/person')
 const findCategory = require('./views/finds/findCategory')
 const admin = require('./admin/adminController')
 
+
+
 //database
-/*
+
 connection.authenticate()
 .then(() => {
     console.log('conexão feita com o banco de dados')
 }).catch((msgErro) => {
     console.log(msgErro)
 })
-*/
+
+
 app.set('view engine', 'ejs')
 //app.set('finds', 'finds');
 //app.set('views', 'views');

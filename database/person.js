@@ -40,22 +40,15 @@ const person = connection.define('person', {
     foneNumber: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    imateId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {         // User belongsTo Company 1:1
-          model: 'imates',
-          key: 'id'}
-        }
+    }
+
 })
 
 
-imate.hasMany(person)
-
-person.belongsTo(imate)
-
 person.sync({force:false}).then(() => {})
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 34542e83d262909df1c88e595cc6a6e01e8e35f6
 module.exports = person
