@@ -9,9 +9,7 @@ const findCategory = require('./views/finds/findCategory')
 const admin = require('./admin/adminController')
 
 
-
 //database
-
 connection.authenticate()
 .then(() => {
     console.log('conexão feita com o banco de dados')
@@ -19,13 +17,9 @@ connection.authenticate()
     console.log(msgErro)
 })
 
-
 app.set('view engine', 'ejs')
 //app.set('finds', 'finds');
 //app.set('views', 'views');
-
-//View engine
-
 
 app.use(express.static('imagens'));
 app.use(express.static('files'));
@@ -93,7 +87,6 @@ app.get('/person/:name', (req, res) => {
 
 })
 
-
 app.post('/register', (req, res) => {
     var name = req.body.name
     var adress = req.body.adress
@@ -111,8 +104,6 @@ app.post('/register', (req, res) => {
     })
 })
 
-
-
 app.post('/registerPerson', (req, res) => {
     var email = req.body.email
     var password = req.body.password
@@ -122,7 +113,6 @@ app.post('/registerPerson', (req, res) => {
     var adress = req.body.adress
     var estate = req.body.estate
     var fone = req.body.fone
-    var imateId = req.body.id
 
     person.create({
         email: email,
@@ -132,13 +122,11 @@ app.post('/registerPerson', (req, res) => {
         city:city,
         adress: adress,
         estate: estate,
-        foneNumber: fone,
-        imateId: imateId
+        foneNumber: fone
     }).then(()=>{
         res.redirect('/person/'+ name)
     })
 })
-
 
 
 app.listen(3000, () => {

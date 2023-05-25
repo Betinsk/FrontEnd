@@ -35,11 +35,14 @@
             <td> <%= person.estate %></td>
         </tr>
 
+        <tr>
+          <th scope="col">Fone number</th>
+          <td> <%= person.foneNumber %></td>
+      </tr>
     </table>
+    <a href='/admin/editPerson/<%=person.id %>' style="display: inline;" class="btn btn-secondary">Edit</a>
 
 </div>
 
 <%- include ('../views/finds/findPerson') %>
 
-
-<%- include ('partials/footer.ejs') %>

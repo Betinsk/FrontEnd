@@ -1,0 +1,56 @@
+<%- include ('../admin/partials/header.ejs') %>
+
+<div class="container shadow p-3 mb-5 bg-white rounded text-center">
+
+    <h1 class="display-4">Edit Person</h1>
+    
+    <form method='POST' action="/admin/updatePerson">
+    <table class="table">
+       
+        <tr>
+            <th scope="col">Email</th>
+
+            <td> <input type="text" class="form-control"name="email" value="<%= person.email %>">
+            </td>
+        </tr>
+  
+        <tr>
+          <th scope="col">Name</th>
+          <td> <input type="text" class="form-control" name="name" value="<%= person.name %>">
+        </tr>
+
+        <tr>
+          <th scope="col">Security Number</th>
+          <td> <input type="text" class="form-control"name="securityNumber" value="<%= person.securityNumber %>">
+          </tr>
+
+        <tr>
+            <th scope="col">City</th>
+            <td> <input type="text" class="form-control"name="city" value="<%= person.city %>">
+            </tr>
+
+        <tr>
+          <th scope="col">Adress</th>
+          <td> <input type="text" class="form-control"name="adress" value="<%= person.adress %>">
+          </tr>
+
+        <tr>
+            <th scope="col">Estate</th>
+            <td> <input type="text" class="form-control"name="estate" value="<%= person.estate %>">
+          </tr>
+
+        <tr>
+            <th scope="col">Fone Number</th>
+            <td> <input type="text" class="form-control"name="fone" value="<%= person.foneNumber %>">
+        </tr>
+
+            <input type="hidden" name='id' value="<%= person.id %>">
+       
+          </table>
+         <button class="form-control col-md-10 mx-auto btn-secondary" type="submit" style=" cursor: pointer;
+         ">Edit</button>
+  </form>
+</div>
+
+<%- include ('../views/finds/findPerson') %>
+

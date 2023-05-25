@@ -11,12 +11,59 @@ router.get('/admin/findPerson', (req, res) => {
     res.render('finds/findPerson')
 })
 
-router.get('/admin/editImate', (req, res) => {
-    res.render('editImate')
+//Methods for editin Person
+router.get('/admin/editPerson/:id', (req, res) => {
+    var id = req.params.id
+
+    if(isNaN(id)){
+        res.render('finds/editPerson')  
+    }
+
+    person.findByPk(id).then(person => {
+    if(person != undefined) {
+
+        res.render('../views/editPerson', {
+            person: person
+        })
+
+    } else {
+        res.render('finds/findError')    }
+    }).catch(erro => {
+        res.redirect('/admin/categories')
+})
 })
 
-//Methods for editin imates
+router.post('/admin/updatePerson', (req, res) => {
+    var id = req.body.id
+    var email = req.body.email
+    var name = req.body.name
+    var securityNumber = req.body.securityNumber
+    var city = req.body.city
+    var adress = req.body.adress
+    var estate = req.body.estate
+    var fone = req.body.fone
 
+    person.update({
+        email: email,
+        name: name,
+        securityNumber: securityNumber,
+        city:city,
+        adress: adress,
+        estate: estate,
+        foneNumber: fone
+    }, {
+        where: {
+            id: id
+        }
+    
+    }).then(()=>{
+        res.redirect('/person/'+ name)
+    })
+})
+
+
+
+//Methods for editin imates
 router.get('/admin/editImate/:id', (req, res) => {
     var id = req.params.id
 
@@ -63,7 +110,7 @@ router.post('/admin/update', (req, res) => {
     var securityNumber = req.body.securityNumber
     var comitedCrime = req.body.crime
     var release = req.body.release
-    imate.update({
+    Imate.update({
         name: name,
         adress: adress,
         securityNumber: securityNumber,
@@ -75,7 +122,7 @@ router.post('/admin/update', (req, res) => {
         }
     
     }).then(()=>{
-        res.redirect('/admin/index')
+        res.redirect('/admin/find')
     })
 })
 
