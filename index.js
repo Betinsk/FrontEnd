@@ -111,22 +111,7 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.post('/admin/delet', (req, res) => {
-    var id = req.body.id
-    if(id != undefined) {
-        if(id != isNaN(id)){
-            imate.destroy({
-                where: {
-                    id: id
-                }
-            }).then(() => {
-                res.redirect('/admin/find')
-            })
-        }
-        } else {
-            res.send('Não existe')
-        }
-    }) 
+
 
 app.post('/registerPerson', (req, res) => {
     var email = req.body.email
