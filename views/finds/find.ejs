@@ -28,7 +28,7 @@
                       <td> <%= imates.dataOfRelease %></td>
                       <td>
 
-                        <button style="display: inline;" class="btn btn-secondary">Edit</button>
+                        <a href='/admin/editImate/<%=imates.id %>' style="display: inline;" class="btn btn-secondary">Edit</a>
                        
                         <form method="POST" action="/admin/delet" style="display: inline;" onsubmit="youSure(event, this)">
                           <input type="hidden" name="id" value="<%= imates.id %>">

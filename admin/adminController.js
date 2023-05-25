@@ -56,5 +56,47 @@ router.post('/findPerson', (req, res) => {
 
 })
 
+router.post('/admin/update', (req, res) => {
+    var id = req.body.id
+    var name = req.body.name
+    var adress = req.body.adress
+    var securityNumber = req.body.securityNumber
+    var comitedCrime = req.body.crime
+    var release = req.body.release
+    imate.update({
+        name: name,
+        adress: adress,
+        securityNumber: securityNumber,
+        comitedCrime: comitedCrime,
+        dataOfRelease: release
+    }, {
+        where: {
+            id: id
+        }
+    
+    }).then(()=>{
+        res.redirect('/admin/index')
+    })
+})
+
+
+//Router of delet a imate
+router.post('/admin/delet', (req, res) => {
+    var id = req.body.id
+    if(id != undefined) {
+        if(id != isNaN(id)){
+            Imate.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect('/admin/find')
+            })
+        }
+        } else {
+            res.send('Não existe')
+        }
+    }) 
+
 
 module.exports = router;
