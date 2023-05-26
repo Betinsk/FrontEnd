@@ -39,7 +39,7 @@ app.get('/sign', (req, res) => {
 })
 
 app.get('/admin/register', (req, res) => {
-    res.render('register')
+    res.render('admin/imateRegister')
 })
 
 app.get('/locations', (req, res) => {

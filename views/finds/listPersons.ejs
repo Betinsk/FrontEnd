@@ -3,35 +3,39 @@
 
 <div class="container shadow p-3 mb-5 bg-white rounded text-center">
 
-        <h1 class="display-5"> List of imates</h1>
+        <h1 class="display-5"> List of Persons</h1>
 
          
-            <% imates.forEach(function(imates){ %>
+           <% person.forEach(function(person){ %>
                 <hr>
                 <div class="table-responsive">
 
                 <table class="table table-striped">
                     <tr>
+                      <th scope="col">Email	</th>
                       <th scope="col">Name</th>
                       <th scope="col">Security Number</th>
+                      <th scope="col">City</th>
                       <th scope="col">Adress</th>
-                      <th scope="col">Comited Crime</th>
-                      <th scope="col">Data Of Release</th>
-                      <th scope="col">Actions</th>
+                      <th scope="col">Estate</th>
+                      <th scope="col">Fone number</th>
+                      <th scope="col">Action</th>
 
                     </tr>
                     <tr>
-                      <td><%= imates.name %></td>
-                      <td><%= imates.securityNumber %></td>
-                      <td> <%= imates.adress %></td>
-                      <td><%= imates.comitedCrime %></td>
-                      <td> <%= imates.dataOfRelease %></td>
+                      <td><%= person.email %></td>
+                      <td><%= person.name %></td>
+                      <td><%= person.securityNumber %></td>
+                      <td><%= person.city %></td>
+                      <td><%= person.adress %></td>
+                      <td><%= person.estate %></td>
+                      <td> <%= person.foneNumber %></td>
                       <td>
 
-                        <a href='/admin/editImate/<%=imates.id %>' style="display: inline;" class="btn btn-secondary">Edit</a>
+                        <a href='/admin/editPerson/<%=person.id %>' style="display: inline;" class="btn btn-secondary">Edit</a>
                        
-                        <form method="POST" action="/admin/delet" style="display: inline;" onsubmit="youSure(event, this)">
-                          <input type="hidden" name="id" value="<%= imates.id %>">
+                        <form method="POST" action="/admin/personDelet" style="display: inline;" onsubmit="youSure(event, this)">
+                          <input type="hidden" name="id" value="<%= person.id %>">
                         <button  style="display: inline;" class="btn btn-dark">Delet</button>
                         
                         </form>

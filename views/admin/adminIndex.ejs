@@ -1,4 +1,4 @@
-<%- include ('../admin/partials/header.ejs') %>
+<%- include ('../../admin/partials/header.ejs') %>
 
 
 <div class="container fw-light shadow p-3 bg-white rounded text-center">
@@ -17,19 +17,22 @@
           </div>
           <div class="col">
             <div class="p-3 border bg-light">
-                <%- include ('./finds/findPerson') %>
+                <%- include ('../finds/findPerson') %>
             </div>
           </div>
           <div class="col">
             <div class="p-3 border bg-light">
 
-                <%- include ('./finds/Imates') %>
-
+                <%- include ('../finds/Imates') %>
             </div>
           </div>
+
           <div class="col">
-            <div class="p-3 border bg-light">Row column</div>
+            <div class="p-3 border bg-light">
+              <a class="nav-link shadow p-3 bg-white rounded" href="/admin/listPerson">List of Persons</a>
+            </div>
           </div>
+          
           <div class="col">
             <div class="p-3 border bg-light">Row column</div>
           </div>

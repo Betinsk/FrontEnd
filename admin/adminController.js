@@ -4,12 +4,39 @@ const person = require('../database/person')
 const Imate = require('../database/imate')
 
 router.get('/admin/index', (req, res) => {
-    res.render('../views/adminIndex')
+    res.render('../views/admin/adminIndex')
 })
 
 router.get('/admin/findPerson', (req, res) => {
     res.render('finds/findPerson')
 })
+
+router.get('/admin/listPerson', (req, res) => {
+    person.findAll().then( person => {
+        res.render('finds/listPersons', {
+            person: person
+        }) 
+    }) 
+})
+
+
+//Router of delet a person
+router.post('/admin/personDelet', (req, res) => {
+    var id = req.body.id
+    if(id != undefined) {
+        if(id != isNaN(id)){
+            person.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect('/admin/find')
+            })
+        }
+        } else {
+            res.send('Não existe')
+        }
+    }) 
 
 //Methods for editin Person
 router.get('/admin/editPerson/:id', (req, res) => {
@@ -22,7 +49,7 @@ router.get('/admin/editPerson/:id', (req, res) => {
     person.findByPk(id).then(person => {
     if(person != undefined) {
 
-        res.render('../views/editPerson', {
+        res.render('../views/admin/editPerson', {
             person: person
         })
 
