@@ -101,7 +101,7 @@ router.get('/admin/editImate/:id', (req, res) => {
 Imate.findByPk(id).then(imate => {
     if(imate != undefined) {
 
-        res.render('../views/editImate', {
+        res.render('../views/admin/editImate', {
             imate: imate
         })
 
